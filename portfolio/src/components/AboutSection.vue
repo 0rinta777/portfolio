@@ -8,7 +8,7 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
     <div class="flex-1 flex items-center px-[122px] py-20 gap-16">
       <!-- Left content -->
       <div class="flex flex-col gap-10 flex-1 max-w-[660px]">
-        <h2 class="about-title font-bold leading-tight" style="color: var(--text)">
+        <h2 class="about-title font-bold leading-tight text-black dark:text-white">
           nice to<br>meet you!
         </h2>
 
@@ -19,13 +19,21 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
         <div class="flex gap-6 mt-2">
           <a
             href="#"
-            class="btn-outline text-[15px] font-normal tracking-wide px-8 py-4 rounded-full transition-colors duration-200"
+            class="text-[15px] font-normal tracking-wide px-8 py-4 rounded-full no-underline inline-block
+                   border border-black/80 dark:border-white/70
+                   text-black dark:text-white
+                   hover:bg-[#ea2490] hover:border-[#ea2490] hover:text-white
+                   transition-colors duration-200"
           >
             Video CV
           </a>
           <a
             href="#"
-            class="btn-outline text-[15px] font-normal tracking-wide px-8 py-4 rounded-full transition-colors duration-200"
+            class="text-[15px] font-normal tracking-wide px-8 py-4 rounded-full no-underline inline-block
+                   border border-black/80 dark:border-white/70
+                   text-black dark:text-white
+                   hover:bg-[#ea2490] hover:border-[#ea2490] hover:text-white
+                   transition-colors duration-200"
           >
             CV.pdf
           </a>
@@ -44,7 +52,6 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -52,18 +59,5 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
 .about-title {
   font-size: clamp(64px, 8vw, 128px);
   line-height: 1.05;
-}
-
-.btn-outline {
-  border: 1px solid var(--btn-border);
-  color: var(--btn-text);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-outline:hover {
-  background: #ea2490;
-  border-color: #ea2490;
-  color: #fff;
 }
 </style>

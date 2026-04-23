@@ -11,8 +11,11 @@ const links = [
 </script>
 
 <template>
-  <nav class="navbar fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center justify-between px-[122px]">
-    <span class="text-[24px] font-light tracking-wide" style="color: var(--text)">
+  <nav class="fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center justify-between px-[122px]
+              bg-white/95 dark:bg-[#0d0d0d]/95 backdrop-blur-sm
+              shadow-[0px_10px_30px_6px_rgba(234,36,144,0.25)] dark:shadow-[0px_10px_30px_6px_rgba(234,36,144,0.35)]
+              transition-colors duration-300">
+    <span class="text-[24px] font-light tracking-wide text-black dark:text-white">
       Orinta Juodgudyte
     </span>
 
@@ -21,8 +24,7 @@ const links = [
         v-for="link in links"
         :key="link.href"
         :href="link.href"
-        class="text-[20px] font-light transition-colors duration-200 hover:text-pink no-underline"
-        style="color: var(--text)"
+        class="text-[20px] font-light no-underline text-black dark:text-white hover:text-[#ea2490] dark:hover:text-[#ea2490] transition-colors duration-200"
       >
         {{ link.label }}
       </a>
@@ -31,24 +33,13 @@ const links = [
         @click="toggleDark"
         :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
         class="w-[52px] h-[28px] rounded-full relative cursor-pointer border border-[#ea2490] transition-colors duration-300 flex-shrink-0"
-        :style="{ background: isDark ? '#1a1a1a' : '#f0f0f0' }"
+        :class="isDark ? 'bg-[#1a1a1a]' : 'bg-[#f0f0f0]'"
       >
         <span
           class="absolute top-[3px] w-[20px] h-[20px] rounded-full bg-[#ea2490] transition-transform duration-300"
-          :style="{ transform: isDark ? 'translateX(1px)' : 'translateX(-21px)' }"
+          :class="isDark ? 'translate-x-[1px]' : '-translate-x-[21px]'"
         ></span>
       </button>
     </div>
   </nav>
 </template>
-
-<style scoped>
-.navbar {
-  background: var(--nav-bg);
-  box-shadow: var(--nav-shadow);
-  backdrop-filter: blur(8px);
-}
-.hover\:text-pink:hover {
-  color: #ea2490;
-}
-</style>
