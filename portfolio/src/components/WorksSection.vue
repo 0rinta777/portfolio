@@ -86,7 +86,7 @@ const cardWidth = computed(() => {
   const w = containerWidth.value
   if (w >= 1024) return w / 3
   if (w >= 640)  return w * 0.75
-  return w
+  return w * 0.88
 })
 
 const translateX = computed(() =>
@@ -150,10 +150,10 @@ onUnmounted(() => {
     id="works"
     class="min-h-screen flex flex-col relative -mt-16"
   >
-    <div class="flex-1 flex flex-col justify-start px-[122px] pt-0 pb-10">
+    <div class="flex-1 flex flex-col justify-start px-4 md:px-[122px] pt-0 pb-10">
 
       <h2
-        class="works-title font-bold text-right mb-0 leading-tight text-black dark:text-white"
+        class="works-title font-bold text-left md:text-right mb-0 leading-tight text-black dark:text-white"
         :style="revealStyle(0)"
       >
         some of my <span class="text-[#ea2490]">work</span>
@@ -215,7 +215,7 @@ onUnmounted(() => {
       <div class="flex items-center justify-center gap-6 mt-10 pt-10">
         <button
           @click="prev"
-          class="w-10 h-10 rounded-full border border-black/15 dark:border-white/15 flex items-center justify-center
+          class="w-12 h-12 md:w-10 md:h-10 rounded-full border border-black/15 dark:border-white/15 flex items-center justify-center
                  hover:border-[#ea2490] hover:text-[#ea2490] text-black dark:text-white
                  transition-colors duration-200"
           aria-label="Previous project"
@@ -225,22 +225,22 @@ onUnmounted(() => {
           </svg>
         </button>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3 md:gap-2">
           <button
             v-for="(_, i) in projects"
             :key="i"
             @click="goTo(i)"
-            class="h-2 rounded-full transition-all duration-300"
+            class="h-3 md:h-2 rounded-full transition-all duration-300 min-w-[12px]"
             :class="i === current
-              ? 'w-6 bg-[#ea2490]'
-              : 'w-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40'"
+              ? 'w-8 md:w-6 bg-[#ea2490]'
+              : 'w-3 md:w-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40'"
             :aria-label="`Go to project ${i + 1}`"
           />
         </div>
 
         <button
           @click="next"
-          class="w-10 h-10 rounded-full border border-black/15 dark:border-white/15 flex items-center justify-center
+          class="w-12 h-12 md:w-10 md:h-10 rounded-full border border-black/15 dark:border-white/15 flex items-center justify-center
                  hover:border-[#ea2490] hover:text-[#ea2490] text-black dark:text-white
                  transition-colors duration-200"
           aria-label="Next project"
@@ -293,6 +293,12 @@ onUnmounted(() => {
 .works-title {
   font-size: clamp(56px, 7vw, 128px);
   line-height: 1.05;
+}
+
+@media (max-width: 767px) {
+  .works-title {
+    font-size: clamp(36px, 10vw, 52px);
+  }
 }
 
 .lb-fade-enter-active,
