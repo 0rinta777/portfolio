@@ -43,7 +43,6 @@ const skills = [
             :src="skill.src"
             :alt="skill.label"
             :class="skill.wide ? 'max-h-14 max-w-14 w-auto h-auto' : 'w-14 h-14 object-contain'"
-            class=""
           >
           <span class="text-[13px] font-light text-black/70 dark:text-white/70">{{ skill.label }}</span>
         </div>
