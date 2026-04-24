@@ -7,7 +7,7 @@ const { el, revealStyle } = useScrollReveal()
   <section
     ref="el"
     id="hero"
-    class="min-h-screen flex flex-col justify-center items-center relative pt-[80px]"
+    class="min-h-screen flex flex-col justify-center items-center relative pt-[80px] px-6 md:px-0"
   >
     <div class="flex-1 flex items-center justify-center w-full">
       <h1
@@ -25,5 +25,11 @@ const { el, revealStyle } = useScrollReveal()
 .hero-title {
   font-size: clamp(80px, 11vw, 160px);
   line-height: 1.05;
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: clamp(36px, 10vw, 56px);
+  }
 }
 </style>

@@ -32,13 +32,17 @@ const links = [
       <button
         @click="toggleDark"
         :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-        class="w-[52px] h-[28px] rounded-full relative cursor-pointer border border-[#ea2490] transition-colors duration-300 flex-shrink-0"
-        :class="isDark ? 'bg-[#1a1a1a]' : 'bg-[#f0f0f0]'"
+        class="flex items-center justify-center min-w-[44px] min-h-[44px] flex-shrink-0 cursor-pointer"
       >
         <span
-          class="absolute top-[3px] w-[20px] h-[20px] rounded-full bg-[#ea2490] transition-transform duration-300"
-          :class="isDark ? 'translate-x-[1px]' : '-translate-x-[21px]'"
-        ></span>
+          class="w-[52px] h-[28px] rounded-full relative border border-[#ea2490] transition-colors duration-300 flex-shrink-0 block"
+          :class="isDark ? 'bg-[#1a1a1a]' : 'bg-[#f0f0f0]'"
+        >
+          <span
+            class="absolute top-[3px] w-[20px] h-[20px] rounded-full bg-[#ea2490] transition-transform duration-300"
+            :class="isDark ? 'translate-x-[1px]' : '-translate-x-[21px]'"
+          ></span>
+        </span>
       </button>
     </div>
   </nav>
