@@ -1,7 +1,19 @@
+<script setup>
+import { useScrollReveal } from '@/composables/useScrollReveal.js'
+const { el, revealStyle } = useScrollReveal()
+</script>
+
 <template>
-  <section id="hero" class="min-h-screen flex flex-col justify-center items-center relative pt-[80px]">
+  <section
+    ref="el"
+    id="hero"
+    class="min-h-screen flex flex-col justify-center items-center relative pt-[80px]"
+  >
     <div class="flex-1 flex items-center justify-center w-full">
-      <h1 class="hero-title text-center font-bold leading-tight text-black dark:text-white">
+      <h1
+        class="hero-title text-center font-bold leading-tight text-black dark:text-white"
+        :style="revealStyle(0)"
+      >
         welcome to <br>
         my <span class="text-[#ea2490]">portfolio.</span>
       </h1>

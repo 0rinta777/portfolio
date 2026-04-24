@@ -1,4 +1,7 @@
 <script setup>
+import { useScrollReveal } from '@/composables/useScrollReveal.js'
+const { el, isVisible } = useScrollReveal()
+
 const qrVectors = [
   'https://www.figma.com/api/mcp/asset/832e7bc8-8c17-4711-9766-83ef7134351e',
   'https://www.figma.com/api/mcp/asset/94426e27-1a23-4949-972e-50d2a6463990',
@@ -12,7 +15,13 @@ const qrRect = 'https://www.figma.com/api/mcp/asset/dfda087c-cfb9-45d3-98f7-3472
 </script>
 
 <template>
-  <section id="contact" class="min-h-screen flex flex-col relative pb-[1px]">
+  <section
+    ref="el"
+    id="contact"
+    class="min-h-screen flex flex-col relative pb-[1px]
+           transition-[opacity,transform] duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+    :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'"
+  >
     <div class="flex-1 flex flex-col justify-center px-[122px] py-20">
       <h2 class="contact-title font-bold leading-tight mb-16 text-black dark:text-white">
         get in touch

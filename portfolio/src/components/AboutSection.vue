@@ -1,22 +1,35 @@
 <script setup>
+import { useScrollReveal } from '@/composables/useScrollReveal.js'
+const { el, revealStyle } = useScrollReveal()
+
 const portrait = 'https://www.figma.com/api/mcp/asset/eeb61041-141d-4a01-bf7f-239659ab4027'
 const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d9e3ac2db'
 </script>
 
 <template>
-  <section id="about" class="min-h-screen flex flex-col relative overflow-hidden">
+  <section
+    ref="el"
+    id="about"
+    class="min-h-screen flex flex-col relative overflow-hidden"
+  >
     <div class="flex-1 flex items-center px-[122px] py-20 gap-16">
       <!-- Left content -->
       <div class="flex flex-col gap-10 flex-1 max-w-[660px]">
-        <h2 class="about-title font-bold leading-tight text-black dark:text-white">
+        <h2
+          class="about-title font-bold leading-tight text-black dark:text-white"
+          :style="revealStyle(0)"
+        >
           nice to<br>meet you!
         </h2>
 
-        <p class="text-[20px] font-light leading-relaxed text-[#ea2490]">
+        <p
+          class="text-[20px] font-light leading-relaxed text-[#ea2490]"
+          :style="revealStyle(80)"
+        >
           I'm Orinta — a creative based in Denmark with a passion for design, photography, and frontend development. I love bringing ideas to life through visual storytelling and clean, thoughtful interfaces.
         </p>
 
-        <div class="flex gap-6 mt-2">
+        <div class="flex gap-6 mt-2" :style="revealStyle(160)">
           <a
             href="#"
             class="text-[15px] font-normal tracking-wide px-8 py-4 rounded-full no-underline inline-block
@@ -41,7 +54,10 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
       </div>
 
       <!-- Right: photos -->
-      <div class="relative flex-shrink-0 w-[420px] h-[580px] hidden lg:block">
+      <div
+        class="relative flex-shrink-0 w-[420px] h-[580px] hidden lg:block"
+        :style="revealStyle(240)"
+      >
         <!-- Camera image (background) -->
         <div class="absolute -right-8 top-0 w-[340px] h-full rounded-2xl overflow-hidden opacity-80 rotate-90">
           <img :src="camera" alt="" class="w-full h-full object-cover">
