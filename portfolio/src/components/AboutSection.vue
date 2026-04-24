@@ -42,7 +42,7 @@ const { el, revealStyle } = useScrollReveal()
             Video CV
           </a>
           <a
-            href="#"
+            href="/CV_ORINTA_JUODGUDYTE.pdf" target="_blank"
             class="text-[15px] font-normal tracking-wide px-6 md:px-8 py-3 md:py-4 min-h-[44px] rounded-full no-underline inline-flex items-center justify-center
                    border border-black/80 dark:border-white/70
                    text-black dark:text-white
@@ -54,7 +54,7 @@ const { el, revealStyle } = useScrollReveal()
         </div>
       </div>
 
-      <!-- Right: photo — hidden on mobile, shown below on sm/md, side-by-side on lg+ -->
+      
       <div
         class="flex-shrink-0 w-[420px] h-[570px] md:w-[420px] md:h-[580px] lg:w-[755px] lg:h-[1050px] lg:translate-x-[-40px]"
         :style="revealStyle(240)"
