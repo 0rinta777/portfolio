@@ -11,7 +11,7 @@ const { el, isVisible } = useScrollReveal()
            transition-[opacity,transform] duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
     :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'"
   >
-    <div class="flex-1 flex flex-col justify-start md:justify-center px-6 md:px-[50px] py-12 md:py-20">
+    <div class="flex-1 flex flex-col justify-start md:justify-center px-6 md:px-[122px] py-12 md:py-20">
       <h2 class="contact-title font-bold leading-tight text-black dark:text-white">
         get in touch
       </h2>
