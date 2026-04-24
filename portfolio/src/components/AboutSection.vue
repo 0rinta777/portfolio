@@ -31,7 +31,9 @@ const { el, revealStyle } = useScrollReveal()
 
         <div class="flex gap-6 mt-2" :style="revealStyle(160)">
           <a
-            href="#"
+            href="https://youtu.be/I1VWcb_VAVM"
+            target="_blank"
+            rel="noopener noreferrer"
             class="text-[15px] font-normal tracking-wide px-8 py-4 rounded-full no-underline inline-block
                    border border-black/80 dark:border-white/70
                    text-black dark:text-white
@@ -48,7 +50,7 @@ const { el, revealStyle } = useScrollReveal()
                    hover:bg-[#ea2490] hover:border-[#ea2490] hover:text-white
                    transition-colors duration-200"
           >
-            CV.pdf
+            CV (PDF)
           </a>
         </div>
       </div>

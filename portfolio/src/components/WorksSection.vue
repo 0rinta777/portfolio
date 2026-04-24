@@ -156,7 +156,7 @@ onUnmounted(() => {
         class="works-title font-bold text-right mb-0 leading-tight text-black dark:text-white"
         :style="revealStyle(0)"
       >
-        some of my <span class="text-[#ea2490]">works</span>
+        some of my <span class="text-[#ea2490]">work</span>
       </h2>
 
       <!-- Carousel -->
