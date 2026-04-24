@@ -78,12 +78,12 @@ onUnmounted(() => ro?.disconnect())
   <section
     ref="el"
     id="works"
-    class="min-h-screen flex flex-col relative"
+    class="min-h-screen flex flex-col relative -mt-16"
   >
-    <div class="flex-1 flex flex-col justify-center px-[122px] py-20">
+    <div class="flex-1 flex flex-col justify-start px-[122px] pt-0 pb-10">
 
       <h2
-        class="works-title font-bold text-right mb-28 leading-tight text-black dark:text-white"
+        class="works-title font-bold text-right mb-0 leading-tight text-black dark:text-white"
         :style="revealStyle(0)"
       >
         some of my <span class="text-[#ea2490]">works</span>
@@ -93,7 +93,7 @@ onUnmounted(() => ro?.disconnect())
       <div
         ref="containerRef"
         class="relative overflow-hidden"
-        :style="revealStyle(80)"
+        :style="{ ...revealStyle(80), marginTop: '88px' }"
         @mouseenter="isHovered = true"
         @mouseleave="isHovered = false"
       >
@@ -139,7 +139,7 @@ onUnmounted(() => ro?.disconnect())
       </div>
 
       <!-- Controls -->
-      <div class="flex items-center justify-center gap-6 mt-10">
+      <div class="flex items-center justify-center gap-6 mt-10 pt-10">
         <!-- Prev -->
         <button
           @click="prev"

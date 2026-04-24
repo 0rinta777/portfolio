@@ -23,7 +23,6 @@ body {
 
 .section-divider {
   width: 100%;
-  height: 1px;
-  background: #ea2490;
+  height: 0;
   box-shadow: 0 0 12px 3px rgba(234, 36, 144, 0.5);
 }

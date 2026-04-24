@@ -2,8 +2,6 @@
 import { useScrollReveal } from '@/composables/useScrollReveal.js'
 const { el, revealStyle } = useScrollReveal()
 
-const portrait = 'https://www.figma.com/api/mcp/asset/eeb61041-141d-4a01-bf7f-239659ab4027'
-const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d9e3ac2db'
 </script>
 
 <template>
@@ -19,7 +17,8 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
           class="about-title font-bold leading-tight text-black dark:text-white"
           :style="revealStyle(0)"
         >
-          nice to<br>meet you!
+          <span class="block whitespace-nowrap">nice to</span>
+          <span class="block whitespace-nowrap">meet you!</span>
         </h2>
 
         <p
@@ -53,19 +52,12 @@ const camera = 'https://www.figma.com/api/mcp/asset/4d0ef7d9-a56c-4cea-8ccc-0a2d
         </div>
       </div>
 
-      <!-- Right: photos -->
+      <!-- Right: photo -->
       <div
-        class="relative flex-shrink-0 w-[420px] h-[580px] hidden lg:block"
+        class="relative flex-shrink-0 w-[755px] h-[1050px] hidden lg:block translate-x-[-40px]"
         :style="revealStyle(240)"
       >
-        <!-- Camera image (background) -->
-        <div class="absolute -right-8 top-0 w-[340px] h-full rounded-2xl overflow-hidden opacity-80 rotate-90">
-          <img :src="camera" alt="" class="w-full h-full object-cover">
-        </div>
-        <!-- Portrait (foreground) -->
-        <div class="absolute left-0 top-[10%] w-[300px] h-[400px] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(234,36,144,0.2)]">
-          <img :src="portrait" alt="Orinta Juodgudyte" class="w-full h-full object-cover object-top">
-        </div>
+        <img src="/assets/digicam.svg" alt="Orinta Juodgudyte" class="w-full h-full object-contain rotate-90 transition-all duration-500 hover:drop-shadow-[0_0_25px_rgba(234,36,144,0.7)] hover:scale-105">
       </div>
     </div>
   </section>
