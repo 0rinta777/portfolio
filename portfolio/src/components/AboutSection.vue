@@ -25,7 +25,8 @@ const { el, revealStyle } = useScrollReveal()
           class="text-[20px] font-light leading-relaxed text-[#ea2490]"
           :style="revealStyle(80)"
         >
-          I'm Orinta — a creative based in Denmark with a passion for design, photography, and frontend development. I love bringing ideas to life through visual storytelling and clean, thoughtful interfaces.
+         I am a Multimedia Design student from Lithuania, currently studying at Syddansk Erhvervsakademi. While I enjoy the visual side of design and Illustrator, I have developed a strong interest in the technical side of the web and plan to study Web Development after finishing my MMD degree. I am a social person who loves being part of a team and learning from others. I’m eager to contribute to collaborative projects and keep growing my skills.
+
         </p>
 
         <div class="flex gap-6 mt-2" :style="revealStyle(160)">
