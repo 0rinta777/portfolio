@@ -5,6 +5,20 @@ import { useScrollReveal } from '@/composables/useScrollReveal.js'
 
 const projects = [
   {
+    title: 'Skarntyden website',
+    description: 'My first website, built with my group - a promotional site for a theater production, built entirely with pure HTML and CSS to really understand the fundamentals from scratch.',
+    cover: '/assets/skarntydencover.jpg',
+    type: 'link',
+    url: 'https://karvin01.github.io/Semester-project-webpage/index.html',
+  },
+  {
+    title: 'Business Region website',
+    description: 'My second project with a group. A cross-border business platform connecting companies across the Danish-German border. I mainly focused on the design, UX/UI and the marketing campaign, though I understand the development side too.',
+    cover: '/assets/businessregioncover.png',
+    type: 'link',
+    url: 'https://business-de-dk-20a16.web.app/',
+  },
+  {
     title: 'International Day 2025',
     description: 'Event posters and promotional materials.',
     cover: '/assets/intdaycover.png',
@@ -44,8 +58,8 @@ const projects = [
     ],
   },
   {
-    title: 'BP',
-    description: 'Print collateral and visual identity.',
+    title: 'White picnic branding',
+    description: 'White Picnic is a community event in my hometown where I helped with marketing, coordination, and the visual identity as one of the organizers.',
     cover: '/assets/bpcover.png',
     type: 'gallery',
     images: [
@@ -55,8 +69,8 @@ const projects = [
     ],
   },
   {
-    title: 'AJC',
-    description: 'Brand identity and print design.',
+    title: 'Youth centre branding',
+    description: 'Visual branding and print materials for my local youth centre - leaflets and posters I designed as part of my volunteer work there as a visual designer and creative assistant.',
     cover: '/assets/ajccover.png',
     type: 'gallery',
     images: [
@@ -66,8 +80,8 @@ const projects = [
     ],
   },
   {
-    title: 'Brochure',
-    description: 'Interactive digital brochure.',
+    title: 'Esbjerg city brochure',
+    description: 'Interactive digital brochure I did with my group.',
     cover: '/assets/brochurecover.jpg',
     type: 'link',
     url: 'https://heyzine.com/flip-book/68cfafdf50.html',
