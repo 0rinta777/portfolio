@@ -1,7 +1,7 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watchEffect } from 'vue'
-import { useCarousel } from '@/composables/useCarousel.js'
+import { ref, onMounted, onUnmounted, watchEffect } from 'vue'
 import { useScrollReveal } from '@/composables/useScrollReveal.js'
+import ProjectCarousel from '@/components/ProjectCarousel.vue'
 
 const projects = [
   {
@@ -88,35 +88,36 @@ const projects = [
   },
 ]
 
-const { extended, trackIdx, current, isHovered, animated, next, prev, goTo, onTransitionEnd } =
-  useCarousel(projects)
+const inProgress = [
+  {
+    title: 'Glam webshop/blog',
+    description: 'Glam is a group project building an online makeup reseller site in WordPress, combining CMS development and digital marketing - from a blog and Sustainability Initiatives page to a RACE-framework campaign across Instagram and TikTok, built around the idea of approachable, conscious, everyday beauty.',
+    cover: '/assets/glamcover.png',
+    type: 'link',
+    url: 'https://github.com/Mihaela1909/glam',
+  },
+  {
+    title: 'To do list app',
+    description: "A simple todo list app built with TypeScript, HTML and CSS, using Vite as the development server. Users can add tasks, see them in a list, and remove them when they're done. Empty input shows an error message and a red input border.",
+    type: 'link',
+    url: 'https://github.com/0rinta777/bde-project',
+  },
+  {
+    title: 'Javascript photobooth app',
+    description: 'Y2kam is a Y2K photobooth web app (Vue 3 + Appwrite) - still in the design phase. So far: hero/homepage done in hi-fi (chrome-glitter headline, live camera preview, strip templates, features, Wall preview), plus a simpler lofi-matched home version.',
+    cover: '/assets/y2kamcover.png',
+  },
+  {
+    title: 'SEA Lab interior design',
+    description: "A redesign of our school's lab into a cozy, organised maker space where people want to spend time. It combines comfy communal seating with a practical workshop, with better storage, black pegboards and warm lighting. The look is warm Scandinavian in oak, black, petrol and red, and we keep costs down by reusing furniture and making decor in the lab ourselves.",
+    cover: '/assets/sealabcover.png',
+    type: 'link',
+    url: 'https://www.figma.com/board/g70FsdIVZHuKyNTuAgRZoS/LAB-interior-design?node-id=0-1&t=ggJRZ4fElTsp2xEo-1',
+  },
+]
 
 const { el, revealStyle } = useScrollReveal()
-
-const containerRef = ref(null)
-const containerWidth = ref(0)
-
-const cardWidth = computed(() => {
-  const w = containerWidth.value
-  if (w >= 1024) return w / 3
-  if (w >= 640)  return w * 0.75
-  return w * 0.88
-})
-
-const translateX = computed(() =>
-  containerWidth.value / 2 - (trackIdx.value + 0.5) * cardWidth.value
-)
-
-function cardStyle(i) {
-  const dist = Math.abs(i - trackIdx.value)
-  if (dist === 0) return { transform: 'scale(1)',   opacity: '1',   pointerEvents: 'auto' }
-  if (dist === 1) return { transform: 'scale(0.9)', opacity: '0.6', pointerEvents: 'none' }
-  return              { transform: 'scale(0.75)',  opacity: '0',   pointerEvents: 'none' }
-}
-
-function isCenterCard(i) {
-  return i === trackIdx.value
-}
+const { el: progressEl, revealStyle: progressRevealStyle } = useScrollReveal()
 
 // ── Lightbox ────────────────────────────────────────────────────────────────
 const lightboxProject = ref(null)
@@ -142,17 +143,11 @@ function onKeyDown(e) {
 }
 // ────────────────────────────────────────────────────────────────────────────
 
-let ro = null
 onMounted(() => {
-  ro = new ResizeObserver(entries => {
-    containerWidth.value = entries[0].contentRect.width
-  })
-  ro.observe(containerRef.value)
   window.addEventListener('keydown', onKeyDown)
 })
 
 onUnmounted(() => {
-  ro?.disconnect()
   window.removeEventListener('keydown', onKeyDown)
   document.body.style.overflow = ''
 })
@@ -173,96 +168,22 @@ onUnmounted(() => {
         some of my <span class="text-[#ea2490]">work</span>
       </h2>
 
-      <!-- Carousel -->
-      <div
-        ref="containerRef"
-        class="relative overflow-hidden"
-        :style="{ ...revealStyle(80), marginTop: '88px' }"
-        @mouseenter="isHovered = true"
-        @mouseleave="isHovered = false"
-      >
-        <!-- Track -->
-        <div
-          class="flex"
-          :style="{
-            transform: `translateX(${translateX}px)`,
-            transition: animated ? 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
-          }"
-          @transitionend="onTransitionEnd"
-        >
-          <div
-            v-for="(project, i) in extended"
-            :key="i"
-            class="flex-shrink-0 px-3"
-            :style="{ width: cardWidth + 'px' }"
-          >
-            <div
-              class="rounded-2xl overflow-hidden border transition-all duration-500 h-full cursor-pointer group"
-              :class="isCenterCard(i)
-                ? 'border-[#ea2490]/40 shadow-[0_8px_40px_rgba(234,36,144,0.18)] bg-[#f8f8f8] dark:bg-[#111111]'
-                : 'border-black/10 dark:border-white/10 bg-[#f8f8f8] dark:bg-[#111111]'"
-              :style="cardStyle(i)"
-              @click="handleCardClick(project)"
-            >
-              <div class="overflow-hidden">
-                <img
-                  :src="project.cover"
-                  :alt="project.title"
-                  class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
-                  draggable="false"
-                >
-              </div>
-              <div class="p-6">
-                <h3 class="text-lg font-bold mb-2 text-black dark:text-white">
-                  {{ project.title }}
-                </h3>
-                <p class="text-sm font-light leading-relaxed text-black/65 dark:text-white/65">
-                  {{ project.description }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div :style="{ ...revealStyle(80), marginTop: '88px' }">
+        <ProjectCarousel :projects="projects" @select="handleCardClick" />
       </div>
 
-      <!-- Controls -->
-      <div class="flex items-center justify-center gap-6 mt-10 pt-10">
-        <button
-          @click="prev"
-          class="w-12 h-12 md:w-10 md:h-10 rounded-full border border-black/15 dark:border-white/15 flex items-center justify-center
-                 hover:border-[#ea2490] hover:text-[#ea2490] text-black dark:text-white
-                 transition-colors duration-200"
-          aria-label="Previous project"
+      <!-- In progress -->
+      <div ref="progressEl" class="in-progress">
+        <h2
+          class="works-title font-bold text-left md:text-right mb-0 leading-tight text-black dark:text-white"
+          :style="progressRevealStyle(0)"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+          in <span class="text-[#ea2490]">progress...</span>
+        </h2>
 
-        <div class="flex items-center gap-3 md:gap-2">
-          <button
-            v-for="(_, i) in projects"
-            :key="i"
-            @click="goTo(i)"
-            class="h-3 md:h-2 rounded-full transition-all duration-300 min-w-[12px]"
-            :class="i === current
-              ? 'w-8 md:w-6 bg-[#ea2490]'
-              : 'w-3 md:w-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40'"
-            :aria-label="`Go to project ${i + 1}`"
-          />
+        <div :style="{ ...progressRevealStyle(80), marginTop: '88px' }">
+          <ProjectCarousel :projects="inProgress" @select="handleCardClick" />
         </div>
-
-        <button
-          @click="next"
-          class="w-12 h-12 md:w-10 md:h-10 rounded-full border border-black/15 dark:border-white/15 flex items-center justify-center
-                 hover:border-[#ea2490] hover:text-[#ea2490] text-black dark:text-white
-                 transition-colors duration-200"
-          aria-label="Next project"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
       </div>
 
     </div>
@@ -309,9 +230,17 @@ onUnmounted(() => {
   line-height: 1.05;
 }
 
+.in-progress {
+  margin-top: 240px;
+}
+
 @media (max-width: 767px) {
   .works-title {
     font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .in-progress {
+    margin-top: 140px;
   }
 }
 
