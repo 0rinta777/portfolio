@@ -20,7 +20,7 @@ const projects = [
   },
   {
     title: 'International Day 2025',
-    description: 'Event posters and promotional materials.',
+    description: 'Poster designs for International Day 2025, created in both A4 print and TV screen formats to promote the event.',
     cover: '/assets/intdaycover.png',
     type: 'gallery',
     images: [
@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: 'Photography',
-    description: 'A selection of personal photography work.',
+    description: 'A collection of personal photography work.',
     cover: '/assets/photographycover.jpg',
     type: 'gallery',
     images: [
