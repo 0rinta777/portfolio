@@ -42,7 +42,7 @@ const { el, revealStyle } = useScrollReveal()
             Video CV
           </a>
           <a
-            href="/CV_ORINTA_JUODGUDYTE.pdf" target="_blank"
+            href="/ORINTAJUODGUDYTE-CV.pdf" target="_blank"
             class="text-[15px] font-normal tracking-wide px-6 md:px-8 py-3 md:py-4 min-h-[44px] rounded-full no-underline inline-flex items-center justify-center
                    border border-black/80 dark:border-white/70
                    text-black dark:text-white
