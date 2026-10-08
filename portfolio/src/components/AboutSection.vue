@@ -25,7 +25,7 @@ const { el, revealStyle } = useScrollReveal()
           class="text-[16px] md:text-[20px] font-light leading-loose md:leading-relaxed text-[#ea2490]"
           :style="revealStyle(80)"
         >
-          I am a Multimedia Design student from Lithuania, currently studying at Syddansk Erhvervsakademi. While I enjoy the visual side of design and Illustrator, I have developed a strong interest in the technical side of the web and plan to study Web Development after finishing my MMD degree. I am a social person who loves being part of a team and learning from others. I'm eager to contribute to collaborative projects and keep growing my skills.
+          I'm a 3rd semester Multimedia Design student at Syddansk Erhvervsakademi in Esbjerg, passionate about turning ideas into visuals that truly connect with people. I started out with graphic design and branding, but my curiosity about what happens behind the screen led me toward UX/UI and frontend development. Last year I worked with HTML, CSS and Vue - this semester I'm diving into PHP, WordPress and JavaScript. I love combining creativity with logic - designs that don't just look good, but feel intuitive to use, and I can't look at a website anymore without thinking about its usability. After my AP degree, I plan to study web development to build on these skills. I'm open-minded, curious and easy-going, and I love collaborating and learning from professionals in the field.
         </p>
 
         <div class="flex gap-4 md:gap-6 mt-2" :style="revealStyle(160)">
